@@ -34,20 +34,6 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Job)) return false;
-        Job job = (Job) o;
-        return getId() == job.getId();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
-
-
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
@@ -94,5 +80,62 @@ public class Job {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Job)) return false;
+        Job job = (Job) o;
+        return getId() == job.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
+    @Override
+    public String toString() {
+        String str;
+
+        String blank = "\n";
+        String id = "ID: " + this.getId() + "\n";
+
+        String name = this.getName();
+        String employer = this.getEmployer().getValue();
+        String location = this.getLocation().getValue();
+        String position = this.getPositionType().getValue();
+        String skills = this.getCoreCompetency().getValue();
+
+        if(name == ""){
+            name = "Data not available";
+        }
+
+        if(employer == ""){
+            employer = "Data not available";
+        }
+
+        if(location == ""){
+            location = "Data not available";
+        }
+
+        if(position == ""){
+            position = "Data not available";
+        }
+
+        if(skills == ""){
+            skills = "Data not available";
+        }
+
+        name = "Name: " + name + "\n";
+        employer = "Employer: " + employer + "\n";
+        location = "Location: " + location + "\n";
+        position = "Position: " + position + "\n";
+        skills = "Core Competencies: " + skills;
+
+        str = blank + id + name + employer + location + position + skills + blank;
+
+        return str;
     }
 }
