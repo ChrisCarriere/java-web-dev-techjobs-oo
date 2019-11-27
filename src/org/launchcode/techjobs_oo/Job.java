@@ -97,10 +97,6 @@ public class Job {
 
     @Override
     public String toString() {
-        String str;
-
-        String blank = "\n";
-        String id = "ID: " + this.getId() + "\n";
 
         String name = this.getName();
         String employer = this.getEmployer().getValue();
@@ -108,23 +104,29 @@ public class Job {
         String position = this.getPositionType().getValue();
         String skills = this.getCoreCompetency().getValue();
 
-        if(name == ""){
+        String str;
+
+        String blank = "\n";
+        String id = "ID: " + this.getId() + "\n";
+
+
+        if (name == "") {
             name = "Data not available";
         }
 
-        if(employer == ""){
+        if (employer == "") {
             employer = "Data not available";
         }
 
-        if(location == ""){
+        if (location == "") {
             location = "Data not available";
         }
 
-        if(position == ""){
+        if (position == "") {
             position = "Data not available";
         }
 
-        if(skills == ""){
+        if (skills == "") {
             skills = "Data not available";
         }
 
